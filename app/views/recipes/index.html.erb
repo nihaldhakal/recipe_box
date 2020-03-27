@@ -1,0 +1,11 @@
+<% @recipes.each_slice(3) do |recipes| %>
+  <row>
+    <% recipes.each do |recipe| %>
+      <col-md-4>
+        <%= image_tag recipe.image.url(:medium) %>
+        <%= link_to "Title",recipe_path(recipe) %>
+      </col-md-4>
+    <% end %>
+  </row>
+<% end %>
+<%= link_to 'New', new_recipe_path %>

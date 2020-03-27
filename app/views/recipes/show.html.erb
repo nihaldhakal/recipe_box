@@ -1,0 +1,16 @@
+<div class="container">
+  <p>
+    <%= image_tag @recipe.image.url(:medium) %>
+  </p>
+  <p>
+  <strong>Title:</strong>
+  <%= @recipe.title %>
+  </p>
+  <p>
+  <strong>Description:</strong>
+  <%= @recipe.description %>
+  </p>
+</div>
+<%= link_to 'Edit', edit_recipe_path %>
+<%= link_to 'Delete',@recipe, method: :delete %>
+<%= link_to 'Home', recipes_path %>
