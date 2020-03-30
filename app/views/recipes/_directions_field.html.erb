@@ -1,0 +1,7 @@
+<div class="form-inline clearfix">
+<span class="nested-fields">
+  <%= f.input :step, input_html: {class: "form-input form-control"} %>
+  <%= link_to_remove_association 'Remove step', f, class: "form-button btn btn-default",
+                                                   partial: 'directions_field' %>
+</span>
+</div>
