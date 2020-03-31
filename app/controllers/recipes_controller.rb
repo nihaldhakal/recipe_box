@@ -23,7 +23,7 @@ class RecipesController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { render :new }
+        format.html { render action: 'new' }
         format.json { render json: @recipe.errors , status: :unprocessable_entity }
       end
     end
