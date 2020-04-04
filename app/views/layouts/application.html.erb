@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RecipeBox</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
+<head>
+  <title>RecipeBox</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-light navbar-right  sticky-top">
+  <% if user_signed_in? %>
+    <a class="nav-link"><%= link_to "Logged in as #{current_user.email}", root_path %> </a>
+    <a class="nav-link"><%= link_to "Log Out", destroy_user_session_path, method: :delete %></a>
+  <% else %>
+    <a class="nav-link"><%= link_to("Sign In", new_user_session_path)%></a>
+    <a class="nav-link"><%= link_to "Sign Up", new_user_registration_path %></a>
+  <% end %>
+</nav><!-- /.navbar-collapse -->
+<div class="container">
+  <p class="notice"><%= notice %></p>
+</div>
+<%= yield %>
+</body>
 </html>
